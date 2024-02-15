@@ -1,0 +1,47 @@
+{
+  "name": "together-ai-sdk",
+  "version": "0.0.1",
+  "description": "A typescript SDK for the Together AI API",
+  "main": "lib/index.js",
+  "files": [
+    "lib/*.ts",
+    "lib/*.js"
+  ],
+  "scripts": {
+    "test": "npx jest --coverage",
+    "lint": "ts-standard --fix",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/riverliway/together-ai.git"
+  },
+  "keywords": [
+    "AI",
+    "API",
+    "Together",
+    "LLM",
+    "SDK",
+    "Typescript"
+  ],
+  "author": "Riverli",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/riverliway/together-ai/issues"
+  },
+  "homepage": "https://github.com/riverliway/together-ai#readme",
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "dotenv": "^16.4.2",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.2",
+    "ts-standard": "^12.0.2",
+    "typescript": "^5.3.3"
+  },
+  "ts-standard": {
+    "ignore": [
+      "examples"
+    ]
+  }
+}
