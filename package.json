@@ -1,6 +1,6 @@
 {
   "name": "together-ai-sdk",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A typescript SDK for the Together AI API",
   "main": "index.js",
   "scripts": {
