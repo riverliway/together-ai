@@ -5,7 +5,11 @@
   "main": "lib/index.js",
   "files": [
     "lib/*.ts",
-    "lib/*.js"
+    "lib/*.js",
+    "lib/core/*.ts",
+    "lib/core/*.js",
+    "lib/utils/*.ts",
+    "lib/utils/*.js"
   ],
   "scripts": {
     "test": "npx jest --coverage",
