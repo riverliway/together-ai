@@ -14,7 +14,8 @@
   "scripts": {
     "test": "npx jest --coverage",
     "lint": "ts-standard --fix",
-    "build": "tsc"
+    "build": "tsc",
+    "build:publish": "npm run build && npm publish"
   },
   "repository": {
     "type": "git",
