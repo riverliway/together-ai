@@ -99,7 +99,21 @@ export interface TogetherChatResponse {
    * The list of completions for the prompt.
    * The number of completions is determined by the `n` parameter.
    */
-  choices: ChatMessage[]
+  choices: Array<{
+    /**
+     * Why the response was finished.
+     */
+    finishReason: string
+    /**
+     * The index of the choice (corresponding to the `n` parameter)
+     */
+    index: number
+    logprobs: null
+    /**
+     * The message completed from the LLM.
+     */
+    message: ChatMessage
+  }>
   /**
    * The number of tokens used for the prompt & completion.
    */
