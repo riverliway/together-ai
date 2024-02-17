@@ -97,7 +97,7 @@ export const togetherClient = (config: TogetherClientConfig): TogetherClient => 
         completionTokens: 0,
         totalTokens: 0
       },
-      choices: indexArray(params.n ?? 1).map(_ => ({ role: 'assistant', content: '' }))
+      choices: indexArray(params.n ?? 1).map(i => ({ index: i, message: { role: 'assistant', content: '' } }))
     } as TogetherChatResponse
 
     const reader = response.body.getReader()
@@ -117,7 +117,7 @@ export const togetherClient = (config: TogetherClientConfig): TogetherClient => 
       }
 
       data.choices.forEach(choice => {
-        completeResponse.choices[choice.index].content += choice.delta.content
+        completeResponse.choices[choice.index].message.content += choice.delta.content
       })
 
       if (data.usage != null) {
@@ -127,7 +127,13 @@ export const togetherClient = (config: TogetherClientConfig): TogetherClient => 
       await params.streamCallback?.(data)
     })
 
-    return { ...completeResponse, choices: completeResponse.choices.map(c => ({ ...c, content: c.content.trim() })) }
+    return { ...completeResponse, choices: completeResponse.choices.map(c => ({
+      ...c,
+      message: {
+        ...c.message,
+        content: c.message.content.trim()
+      } 
+    })) }
   }
 
   const language = async (params: TogetherLanguageParams): Promise<TogetherLanguageResponse> => {

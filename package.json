@@ -1,16 +1,21 @@
 {
   "name": "together-ai-sdk",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "A typescript SDK for the Together AI API",
   "main": "lib/index.js",
   "files": [
     "lib/*.ts",
-    "lib/*.js"
+    "lib/*.js",
+    "lib/core/*.ts",
+    "lib/core/*.js",
+    "lib/utils/*.ts",
+    "lib/utils/*.js"
   ],
   "scripts": {
     "test": "npx jest --coverage",
     "lint": "ts-standard --fix",
-    "build": "tsc"
+    "build": "tsc",
+    "build:publish": "npm run build && npm publish"
   },
   "repository": {
     "type": "git",
