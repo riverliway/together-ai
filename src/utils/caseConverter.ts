@@ -5,7 +5,9 @@
  * @returns the object with new keys
  */
 export const snakeCase2camelCase = (obj: any): any => {
-  if (typeof obj !== 'object' || Array.isArray(obj) || !obj) return obj
+  if (Array.isArray(obj)) return obj.map(snakeCase2camelCase)
+
+  if (typeof obj !== 'object' || !obj) return obj
 
   const keys = Object.keys(obj)
   const newObj: any = {}
@@ -35,7 +37,9 @@ export const convertSnakeCase = (snakeCase: string): string => {
  * @returns the object with new keys
  */
 export const camelCase2snakeCase = (obj: any): any => {
-  if (typeof obj !== 'object' || Array.isArray(obj) || !obj) return obj
+  if (Array.isArray(obj)) return obj.map(camelCase2snakeCase)
+
+  if (typeof obj !== 'object' || !obj) return obj
 
   const keys = Object.keys(obj)
   const newObj: any = {}

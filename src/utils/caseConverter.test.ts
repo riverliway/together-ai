@@ -22,6 +22,18 @@ describe('Converting cases', () => {
       expect(result[2]).toBe(3)
     })
 
+    test('array of objects', () => {
+      const result = snakeCase2camelCase([{ hi_you: 'hi_you', yeah_you: 'yeah_you' }])
+      expect(result.length).toEqual(1)
+      expect(result[0]).toHaveProperty('hiYou')
+      expect(result[0]).not.toHaveProperty('hi_you')
+      expect(result[0].hiYou).toBe('hi_you')
+
+      expect(result[0]).toHaveProperty('yeahYou')
+      expect(result[0]).not.toHaveProperty('yeah_you')
+      expect(result[0].yeahYou).toBe('yeah_you')
+    })
+
     test('object without case', () => {
       const result = snakeCase2camelCase({ hi: 'hi', yeah: 'yeah' })
       expect(result).toHaveProperty('hi')
@@ -143,6 +155,18 @@ describe('Converting cases', () => {
       expect(result[2]).toBe(3)
     })
 
+    test('array of objects', () => {
+      const result = camelCase2snakeCase([{ hiYou: 'hi_you', yeahYou: 'yeah_you' }])
+      expect(result.length).toEqual(1)
+      expect(result[0]).toHaveProperty('hi_you')
+      expect(result[0]).not.toHaveProperty('hiYou')
+      expect(result[0].hi_you).toBe('hi_you')
+
+      expect(result[0]).toHaveProperty('yeah_you')
+      expect(result[0]).not.toHaveProperty('yeahYou')
+      expect(result[0].yeah_you).toBe('yeah_you')
+    })
+
     test('object without case', () => {
       const result = camelCase2snakeCase({ hi: 'hi', yeah: 'yeah' })
       expect(result).toHaveProperty('hi')
@@ -248,6 +272,10 @@ describe('Converting cases', () => {
   describe('convertSnakeCase', () => {
     test('Empty string', () => {
       expect(convertSnakeCase('')).toBe('')
+    })
+
+    test('Ends with number', () => {
+      expect(convertSnakeCase('hello_a5')).toBe('helloA5')
     })
   })
 
