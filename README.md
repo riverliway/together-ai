@@ -65,6 +65,8 @@ A custom fetch function to use to send the request. Useful for testing, logging,
 
 Defaults to built in `fetch`.
 
+NOTE: If you are running in the browser, you _must_ set this field to: `customFetch: window.fetch.bind(window)`.
+
 ### Chat
 
 To perform a chat inference, use the chat method on the client object:
